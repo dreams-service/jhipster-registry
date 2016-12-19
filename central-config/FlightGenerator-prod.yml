@@ -1,0 +1,119 @@
+# ===================================================================
+# Spring Boot configuration for the "prod" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+eureka:
+    instance:
+        prefer-ip-address: true
+    client:
+        enabled: true
+        healthcheck:
+            enabled: true
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+            defaultZone: http://admin:admin@jhipster-registry.dreams.svc.cluster.local:8761/eureka/
+
+spring:
+    devtools:
+        restart:
+            enabled: false
+        livereload:
+            enabled: false
+    mail:
+        host: localhost
+        port: 25
+        username:
+        password:
+    thymeleaf:
+        cache: true
+
+server:
+    port: 8190
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+        min-response-size: 1024
+
+# ===================================================================
+# JHipster specific properties
+# ===================================================================
+
+jhipster:
+    http:
+        cache: # Used by the CachingHttpHeadersFilter
+            timeToLiveInDays: 1461
+    security:
+        client-authorization:
+            accessTokenUri: http://uaaservice/oauth/token
+            tokenServiceId: uaaservice
+            clientId: user
+            clientSecret: user
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: FlightGenerator@localhost
+    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
+        jmx.enabled: true
+        spark:
+            enabled: false
+            host: localhost
+            port: 9999
+        graphite:
+            enabled: false
+            host: localhost
+            port: 2003
+            prefix: FlightGenerator
+        logs: # Reports Dropwizard metrics in the logs
+            enabled: false
+            reportFrequency: 60 # in seconds
+    logging:
+        logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+            enabled: false
+            host: localhost
+            port: 5000
+            queueSize: 512
+        spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
+            enabled: false
+            # edit spring.metrics.export.delay-millis to set report frequency
+
+# ===================================================================
+# Generator specific properties
+# ===================================================================            
+flightgenerator:
+    rate: 5 # Execution rate in second
+    min-flight: 2 # minimum number of flights created for each cycle 
+    max-flight: 10 # max number of flights created for each cycle
+    min-delay-time: 1 # minimum delay time in second between cycle
+    max-delay-time: 20 # max delay time in second between cycle
+    min-duration: 20 # minimum filght duration in minute
+    max-duration: 120 # max filght duration in minute
+    owners: [user1, user2, user3]
+    type-distribution:
+        - 
+            valueField: VLOS 
+            percent: 60
+        -
+            valueField: EVLOS
+            percent: 20
+        -
+            valueField: BVLOS
+            percent: 10
+        -
+            valueField: AUTONOMOUS
+            percent: 10
+    start-date-distribution:
+        - 
+            valueField: sunrise 
+            percent: 80
+        -
+            valueField: sunset
+            percent: 20
+    max-altitude-range: [200, 400, 500] # range value of max altitude
+    radius-range: [500, 1000, 3000, 5000] # range value of max altitude in meter

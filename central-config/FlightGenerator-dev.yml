@@ -32,68 +32,32 @@ spring:
             enabled: false # we use gulp + BrowserSync for livereload
     jackson:
         serialization.indent_output: true
-    datasource:
-        type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://uaaservice-postgresql.dreams.svc.cluster.local:5432/DRIMS-UAA
-        name: 
-        username: postgres
-        password: postgres
-    jpa:
-        database-platform: com.ids.drims.uaa.domain.util.FixedPostgreSQL82Dialect
-        database: POSTGRESQL
-        show-sql: true
-        properties:
-            hibernate.cache.use_second_level_cache: true
-            hibernate.cache.use_query_cache: false
-            hibernate.generate_statistics: true
-            hibernate.cache.region.factory_class: com.ids.drims.uaa.config.hazelcast.HazelcastCacheRegionFactory
-            hibernate.cache.use_minimal_puts: true
-            hibernate.cache.hazelcast.use_lite_member: true
-    data:
-        elasticsearch:
-            cluster-name:
-            cluster-nodes:
-            properties:
-                path:
-                  logs: target/elasticsearch/log
-                  data: target/elasticsearch/data
     mail:
-        host: smtp.gmail.com
-        port: 587
-        username: dreams.notify@gmail.com  #Replace this field with your Gmail username.
-        password: IdsDreams          #Replace this field with your Gmail password.
-        protocol: smtp
-        tls: true
-        properties.mail.smtp:
-            auth: true
-            starttls.enable: true
-            ssl.trust: smtp.gmail.com
+        host: localhost
+        port: 25
+        username:
+        password:
     messages:
         cache-seconds: 1
     thymeleaf:
         cache: false
 
-liquibase:
-    contexts: dev
-
 server:
-    port: 9999
+    port: 8190
 
 # ===================================================================
 # JHipster specific properties
 # ===================================================================
 
 jhipster:
-    cache: # Hibernate 2nd level cache, used by CacheConfiguration
-        timeToLiveSeconds: 3600
-        hazelcast:
-            backupCount: 1
     security:
         client-authorization:
-            clientId: internal
-            clientSecret: internal
+            accessTokenUri: http://uaaservice/oauth/token
+            tokenServiceId: uaaservice
+            clientId: user
+            clientSecret: user
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: UAAService@localhost
+        from: FlightGenerator@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -104,7 +68,7 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: UAAService
+            prefix: FlightGenerator
         logs: # Reports Dropwizard metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds
@@ -114,3 +78,41 @@ jhipster:
             host: localhost
             port: 5000
             queueSize: 512
+        spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
+            enabled: false
+            # edit spring.metrics.export.delay-millis to set report frequency
+            
+# ===================================================================
+# Generator specific properties
+# ===================================================================            
+flightgenerator:
+    rate: 5 # 5 Execution rate in second
+    min-flight: 2 # 2 minimum number of flights created for each cycle 
+    max-flight: 10 # 10 max number of flights created for each cycle
+    min-delay-time: 1 # minimum delay time in second between cycle
+    max-delay-time: 20 # max delay time in second between cycle
+    min-duration: 20 # minimum filght duration in minute
+    max-duration: 120 # max filght duration in minute
+    owners: [user1, user2, user3]
+    type-distribution:
+        - 
+            valueField: VLOS 
+            percent: 60
+        -
+            valueField: EVLOS
+            percent: 20
+        -
+            valueField: BVLOS
+            percent: 10
+        -
+            valueField: AUTONOMOUS
+            percent: 10
+    start-date-distribution:
+        - 
+            valueField: sunrise 
+            percent: 80
+        -
+            valueField: sunset
+            percent: 20
+    max-altitude-range: [200, 400, 500] # range value of max altitude
+    radius-range: [500, 1000, 3000, 5000] # range value of max altitude in meter
