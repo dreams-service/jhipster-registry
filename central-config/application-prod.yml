@@ -14,7 +14,7 @@ eureka:
     env: prod
     instance:
         hostname: jhipster-registry.dreams.svc.cluster.local
-        appname: registry
+        appname: jhipster-registry
         prefer-ip-address: false
     server:
         # see discussion about enable-self-preservation:
