@@ -13,6 +13,7 @@
 eureka:
     instance:
         prefer-ip-address: false
+        hostname: FlightService.dreams.svc.cluster.loc
     client:
         enabled: true
         healthcheck:
