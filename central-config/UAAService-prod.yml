@@ -13,7 +13,7 @@
 eureka:
     instance:
         prefer-ip-address: false
-        hostname: UAAService.dreams.svc.cluster.loc
+        hostname: uaaservice.dreams.svc.cluster.local
     client:
         enabled: true
         healthcheck:
