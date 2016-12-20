@@ -15,7 +15,7 @@ eureka:
     instance:
         hostname: jhipster-registry.dreams.svc.cluster.local
         appname: registry
-        prefer-ip-address: true
+        prefer-ip-address: false
     server:
         # see discussion about enable-self-preservation:
         # https://github.com/jhipster/generator-jhipster/issues/3654
