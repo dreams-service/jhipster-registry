@@ -31,7 +31,7 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://uaaservice-postgresql.dreams.svc.cluster.local:5432/DRIMS-UAA
+        url: jdbc:postgresql://dreamsdb-postgresql.dreams.svc.cluster.local:5432/DRIMS-UAA
         name:
         username: postgres
         password: postgres
