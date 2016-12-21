@@ -43,13 +43,13 @@ hystrix:
 management:
     context-path: /management
     security:
-       enabled: true
+       enabled: false
     health:
         mail:
             enabled: false # When using the MailService, configure an SMTP server and set this to true
 endpoints:
    health:
-     sensitive: false
+     sensitive: true
 
 spring:
     application:
