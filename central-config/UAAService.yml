@@ -22,9 +22,15 @@ ribbon:
 
 management:
     context-path: /management
+    security:
+       enabled: false
     health:
         mail:
             enabled: false # When using the MailService, configure an SMTP server and set this to true
+endpoints:
+   health:
+     sensitive: true
+
 spring:
     application:
         name: UAAService
