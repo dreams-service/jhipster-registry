@@ -19,6 +19,7 @@ eureka:
 ribbon:
     eureka:
         enabled: true
+    ReadTimeout: 40000
 
 zuul:
     routes:
@@ -103,6 +104,5 @@ jhipster:
         license:
         licenseUrl:
     ribbon:
-        ReadTimeout: 40000
         # comma seperated list of profiles to show a ribbon on the GUI
         displayOnActiveProfiles: dev
