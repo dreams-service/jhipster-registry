@@ -37,6 +37,18 @@ spring:
         name:
         username: postgres
         password: postgres
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: kafka-broker-svc.dreams.svc.cluster.local
+                    zk-nodes: kafka-zoo-svc.dreams.svc.cluster.local
+            bindings:
+                user-notifications:
+                    binder: kafka
+                    destination: user-notifications-topic
+                    contentType: application/json
+                    group: client-pushing-group
     jpa:
         database-platform: com.ids.drims.gateway.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
