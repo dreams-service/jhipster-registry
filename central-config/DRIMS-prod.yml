@@ -41,7 +41,7 @@ spring:
         stream:
             kafka:
                 binder:
-                    brokers: kafka-broker-svc.dreams.svc.cluster.local
+                    brokers: kafka.dreams.svc.cluster.local
                     zk-nodes: kafka-zoo-svc.dreams.svc.cluster.local
             bindings:
                 user-notifications:
