@@ -129,3 +129,14 @@ jhipster:
         spectator-metrics: # Reports Spectator Circuit Breaker metrics in the logs
             enabled: false
             # edit spring.metrics.export.delay-millis to set report frequency
+
+# ===================================================================
+# Trac specific properties
+# ===================================================================
+trac:
+   user: admin
+   password: admin
+   host: localhost
+   port: 8082
+   apiUrl: /api
+   wsUrl: /api/socket
