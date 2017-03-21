@@ -131,7 +131,7 @@ jhipster:
             # edit spring.metrics.export.delay-millis to set report frequency
 
 # ===================================================================
-# Trac specific properties 
+# Trac specific properties
 # ===================================================================
 trac:
    user: admin
