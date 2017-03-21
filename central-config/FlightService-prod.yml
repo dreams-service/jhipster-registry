@@ -136,7 +136,7 @@ jhipster:
 trac:
    user: admin
    password: admin
-   host: traccer-server.dreams.svc.cluster.local
+   host: traccar-server.dreams.svc.cluster.local
    port: 8082
    apiUrl: /api
    wsUrl: /api/socket
