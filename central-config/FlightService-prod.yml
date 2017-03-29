@@ -140,3 +140,11 @@ trac:
    port: 8082
    apiUrl: /api
    wsUrl: /api/socket
+ 
+# ===================================================================
+# Tracks Purge specific properties
+# ===================================================================
+
+tracksPurge:
+   cronSchedul: "0 0 00 * * *" # every day at time 00:00 "0 0 00 * * *"
+   numMonths: -6 # -n months
