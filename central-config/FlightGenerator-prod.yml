@@ -88,13 +88,13 @@ jhipster:
 # Generator specific properties
 # ===================================================================            
 flightgenerator:
-    rate: 5 # Execution rate in second
-    min-flight: 2 # minimum number of flights created for each cycle 
-    max-flight: 10 # max number of flights created for each cycle
+    rate: 120 # 5 Execution rate in second
+    min-flight: 1 # 2 minimum number of flights created for each cycle
+    max-flight: 2 # 10 max number of flights created for each cycle
     min-delay-time: 1 # minimum delay time in second between cycle
-    max-delay-time: 20 # max delay time in second between cycle
+    max-delay-time: 2 # max delay time in second between cycle
     min-duration: 20 # minimum filght duration in minute
-    max-duration: 120 # max filght duration in minute
+    max-duration: 60 # max filght duration in minute
     owners: [user1, user2, user3]
     type-distribution:
         - 
