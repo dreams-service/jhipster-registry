@@ -88,7 +88,7 @@ jhipster:
 # Generator specific properties
 # ===================================================================            
 flightgenerator:
-    rate: 120 # 5 Execution rate in second
+    cron: "0 */2 * * * *"
     min-flight: 1 # 2 minimum number of flights created for each cycle
     max-flight: 2 # 10 max number of flights created for each cycle
     min-delay-time: 1 # minimum delay time in second between cycle
