@@ -93,7 +93,7 @@ flightgenerator:
     max-flight: 2 # 10 max number of flights created for each cycle
     min-delay-time: 1 # minimum delay time in second between cycle
     max-delay-time: 2 # max delay time in second between cycle
-    min-duration: 20 # minimum filght duration in minute
+    min-duration: 10 # minimum filght duration in minute
     max-duration: 20 # max filght duration in minute
     owners: [user1, user2, user3]
     type-distribution:
