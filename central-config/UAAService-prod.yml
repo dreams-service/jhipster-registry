@@ -91,7 +91,9 @@ jhipster:
             clientId: internal
             clientSecret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: UAAService@localhost
+        from: DREAMS
+        baseUrl: http://5.88.129.7:8081
+        contextPath: "/stage"
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
