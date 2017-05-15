@@ -19,5 +19,5 @@ jhipster:
 # ===================================================================
 amazon:
     applicationArn: arn:aws:sns:us-west-2:504707953984:app/GCM/dreams-test
-    aws_access_key_id: AKIAIMZCRMNWEG7EDYIQ
-    aws_secret_access_key: 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
+    aws_access_key_id: AKIAJRHRKM6COLTWQIUA
+    aws_secret_access_key: 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
