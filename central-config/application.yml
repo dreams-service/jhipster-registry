@@ -13,3 +13,11 @@ jhipster:
         authentication:
             jwt:
                 secret: my-secret-token-to-change-in-production
+ 
+# ===================================================================
+# Amazon WS specific properties
+# ===================================================================
+amazon:
+    applicationArn: arn:aws:sns:us-west-2:504707953984:app/GCM/dreams-test
+    aws_access_key_id: AKIAIMZCRMNWEG7EDYIQ
+    aws_secret_access_key: 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
